@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page QR Code</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="brand">
+        <img class="brand-mark" src="icons/logo.svg" width="40" height="40" alt="" />
+        <div class="brand-text">
+          <h1>Page QR</h1>
+          <p class="tagline">Scan this page, or any link</p>
+        </div>
+      </header>
+
+      <section class="preview" aria-labelledby="qr-label">
+        <div class="section-head">
+          <p id="qr-label" class="section-label">QR code</p>
+          <p id="encoded-url" class="encoded-url" title=""></p>
+        </div>
+        <div class="qr-frame">
+          <div class="qr-mat">
+            <canvas id="qr-canvas" width="176" height="176" aria-label="Generated QR code"></canvas>
+            <p id="status" class="status" role="status">Reading page…</p>
+          </div>
+        </div>
+        <div class="actions">
+          <button type="button" id="download-btn" class="btn btn-secondary" disabled>
+            Download PNG
+          </button>
+          <button type="button" id="copy-btn" class="btn btn-secondary" disabled>Copy URL</button>
+        </div>
+      </section>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <section class="custom" aria-labelledby="custom-label">
+        <p id="custom-label" class="section-label">Custom link</p>
+        <label class="sr-only" for="url-input">Paste a link</label>
+        <div class="field">
+          <input
+            id="url-input"
+            type="url"
+            placeholder="Paste a link here"
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </div>
+        <button type="button" id="generate-btn" class="btn btn-primary">
+          Generate QR Code
+        </button>
+        <button type="button" id="use-page-btn" class="btn btn-link">
+          Use current page instead
+        </button>
+      </section>
+    </div>
+
+    <script src="lib/qrcode.min.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

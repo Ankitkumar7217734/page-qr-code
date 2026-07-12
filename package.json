@@ -1,0 +1,14 @@
+{
+  "name": "page-qr-code",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Browser extension that generates QR codes for the current page or a pasted link",
+  "scripts": {
+    "bundle-qr": "esbuild node_modules/qrcode/lib/browser.js --bundle --minify --format=iife --global-name=QRCode --outfile=lib/qrcode.min.js"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "esbuild": "^0.25.0",
+    "qrcode": "^1.5.4"
+  }
+}
